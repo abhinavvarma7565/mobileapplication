@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Compute my grade</title>
+
+		<link rel="stylesheet" href="themes/Bootstrap.css">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile.structure-1.4.0.min.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<style>
+body{
+font-family: 'Roboto', sans-serif;}
+</style>
+<script>
+ $(function () {
+        $('#gr').on('submit', function (e) {
+          e.preventDefault();
+          $.ajax({
+            type: 'post',
+            url: 'http://rubypals.com/phonegapstyle/phpcode/adduser.php',
+            data: $('#gr').serialize(),
+            error: function(xhr,status){
+            console.log(status);
+alert("Class added!");
+ },
+            success: function (data, xhr) {
+            console.log(data.status);
+alert("Class added!");
+
+			}
+			
+          });
+
+        });
+
+      });
+</script>
+	</head>
+	<body>
+		<div data-role="page" data-theme="f"  style="background-color:#000;">
+			<div data-role="header" data-position="inline">
+				<h1>Welcome, Professor!</h1>
+				<div data-role="navbar">
+					<ul>
+					    <li><a href="prohome.html" rel="external" data-icon="home" class="ui-btn-active">Home</a></li>
+						<li><a href="set.html" rel="external" data-icon="gear">Set Marks</a></li>
+               <li><a href="set1.html" rel="external" data-icon="gear">Set Percentage</a></li>
+						<li><a href="set2.html" rel="external" data-icon="gear">Set Grade</a></li>
+
+						<li><a href="grade.html" rel="external" data-icon="check">Grade</a></li>
+
+
+					</ul>
+				</div>
+			</div>
+			<div data-role="content" data-theme="d" style="background-color:#000;">
+			<a href="file:///Users/leona/hello/www/index.html" rel="external" data-role="button" data-theme="a" data-icon="gear" style="color:#fff; width:30px; height:10px; margin-left:90%;"><span style="color:#000; font-size:8px;">Logout</span></a>
+				<h2  style="color:#fff;">Home</h2>
+				
+				<a href="#popupLogin" data-rel="popup" data-role="button" data-icon="check" data-theme="d" data-transition="pop">Add a class</a>
+<div data-role="popup" id="popupMenu" data-theme="a">
+    <div data-role="popup" id="popupLogin" data-theme="c" class="ui-corner-all">
+        <form id="gr" name="gr">
+            <div style="padding:10px 20px;">
+              <h3>Add a Class</h3>
+              <label for="un" class="ui-hidden-accessible">Class number:</label>
+              <input type="text" name="class" id="class" value="" placeholder="Number" data-theme="a">
+              <label for="textarea" class="ui-hidden-accessible">Description:</label>
+              <input type="textarea" name="description" id="description" value="" placeholder="Description" data-theme="a">
+              <button type="submit" data-theme="b" data-icon="check">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+				<a href="#popupVideo" data-rel="popup" data-position-to="window" data-icon="eye" data-role="button">View Greensheet</a>
+<div data-role="popup" id="popupVideo" data-overlay-theme="b" data-theme="a" data-tolerance="15,15" class="ui-content">
+    <iframe src="http://openloop.com/education/classes/sjsu_engr/engr_mobile_dev/fall2015/index.php" width="250" height="200" seamless=""></iframe>
+</div>
+			
+			
+			<a href="student.html" rel="external" data-role="button" data-icon="user">View Students</a>
+
+
+				<p>
+				</p>
+
+			</div>
+		</div>
+	</body>
+</html>

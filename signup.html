@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>jQuery Mobile Bootstrap Theme</title>
+		<link rel="stylesheet" href="themes/Bootstrap.css">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile.structure-1.4.0.min.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<link rel="external" data-ajax="false">
+		<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+			<script>
+		$(function () {
+        $('#gr').on('submit', function (e) {
+          e.preventDefault();
+          $.ajax({
+            type: 'post',
+            url: 'http://rubypals.com/phonegapstyle/phpcode/signup.php',
+            data: $('#gr').serialize(),
+            error: function(xhr,status){
+            console.log(xhr);
+ },
+            success: function (data, xhr) {
+            console.log(data.status);
+            if(data.status=="True"){
+            window.location.href="file:///Users/leona/hello/www/index.html";
+            }
+			}
+			
+          });
+
+        });
+
+      });
+		</script>
+	
+	</head>
+	<body>
+		<div data-role="page" data-theme="a">
+			<div data-role="content" data-theme="a">
+
+				<h2>Sign Up</h2>
+
+				<form id="gr" name="gr">
+
+					<div data-role="fieldcontain">
+						<label for="name">Username:</label>
+						<input type="text" name="ID" id="ID" value=""  />
+					</div>
+					<div data-role="fieldcontain">
+						<label for="name">Password:</label>
+						<input type="password" name="password" id="password" value=""  />
+					</div>
+					<div data-role="fieldcontain">
+						<label for="name">Re-Password:</label>
+						<input type="password" name="name" id="repassword" value=""  />
+					</div>
+                     
+                     <div data-role="fieldcontain">
+						<label for="name">Name:</label>
+						<input type="text" name="name" id="name" value=""  />
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for="name">Email:</label>
+						<input type="text" name="name" id="email" value=""  />
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for="name">Phone:</label>
+						<input type="text" name="name" id="phone" value=""  />
+					</div>
+					
+
+					<div data-role="fieldcontain">
+						<label for="slider2" style="width:200px;">Account Type:</label>
+						<select name="Type" id="Type" data-role="slider" name="acc" style="width:100px;">
+							<option value="Student">Student  </option>
+							<option value="Prof">Professor   </option>
+						</select>
+					</div>
+
+					<div class="ui-body ui-body-b">
+						<fieldset class="ui-grid-a">
+							<div class="ui-block-a"><button type="reset" data-theme="e">Cancel</button></div>
+							<div class="ui-block-b"><button type="submit" name="submit" value="submit" data-theme="f">Signup</button></div>
+					    </fieldset>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</body>
+</html>
